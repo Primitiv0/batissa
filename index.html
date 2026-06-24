@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Uniformes Batissa — Pioneros en uniformes desde 1970</title>
+<meta name="description" content="Uniformes Batissa: fabricación y venta de todo tipo de uniformes en República Dominicana desde 1970. Médicos, escolares, empresariales, industriales y de seguridad. Al por mayor y al detalle." />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --indigo:#0077B6;      /* deep Batissa blue - primary dark */
+    --indigo-2:#0096C780;
+    --red:#F88018;         /* Batissa orange - accent (was red) */
+    --brass:#0096C7;       /* Batissa cyan - secondary accent / detail */
+    --bone:#F2FAFD;        /* clean blue-tinted off-white background */
+    --bone-2:#E2F2F8;
+    --ink:#0C2230;         /* deep blue-charcoal text */
+    --slate:#5B7080;       /* muted blue-gray */
+    --cyan:#00B8D8;        /* bright cyan highlight */
+    --blue:#0096C7;        /* primary Batissa blue */
+    --white:#FFFFFF;
+    --nav-h:72px;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bone);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+  /* stitch divider motif */
+  .stitch{height:2px;background-image:linear-gradient(90deg,var(--blue) 0 12px,transparent 12px 22px);background-size:22px 2px;background-repeat:repeat-x;opacity:.5;border:0}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 6vw;background:rgba(242,250,253,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(12,34,48,.08)}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .brand img{height:46px;width:auto;border-radius:0}
+  .brand-name{font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;letter-spacing:-.02em;line-height:1;color:var(--blue)}
+  .brand-name small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);margin-top:3px}
+  .nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+  .nav-links a{color:var(--ink);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--red)}
+  .nav-cta{background:var(--red);color:#fff!important;padding:9px 20px;border-radius:6px;font-weight:600!important;display:inline-flex;align-items:center;gap:7px}
+  .nav-cta:hover{background:#a60d26}
+  .lang-toggle{background:transparent;border:1px solid rgba(12,34,48,.2);color:var(--ink);font-family:'Inter';font-weight:600;font-size:.78rem;letter-spacing:.05em;padding:6px 11px;border-radius:6px;cursor:pointer;transition:.2s}
+  .lang-toggle:hover{border-color:var(--red);color:var(--red)}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:4px}
+  .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
+
+  /* HERO */
+  #hero{padding:calc(var(--nav-h) + 5rem) 6vw 5rem;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center;max-width:1300px;margin:0 auto}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:1.5rem}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--brass)}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.6rem,5.2vw,4.6rem);line-height:1.02;letter-spacing:-.02em;margin-bottom:1.5rem}
+  h1 .red{color:var(--red)}
+  .hero-lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--slate);max-width:30rem;margin-bottom:2.4rem}
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+  .btn-primary{background:var(--red);color:#fff;font-weight:600;font-size:.95rem;padding:15px 30px;border-radius:7px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:.2s;border:0;cursor:pointer}
+  .btn-primary:hover{background:#a60d26;transform:translateY(-1px)}
+  .btn-ghost{color:var(--indigo);font-weight:600;font-size:.95rem;padding:15px 26px;border-radius:7px;text-decoration:none;border:1.5px solid rgba(26,42,79,.25);transition:.2s}
+  .btn-ghost:hover{border-color:var(--indigo);background:var(--indigo);color:#fff}
+  .hero-meta{display:flex;gap:2.5rem;margin-top:3rem}
+  .hero-meta .m-num{font-family:'Fraunces',serif;font-weight:600;font-size:2rem;color:var(--indigo);line-height:1}
+  .hero-meta .m-lab{font-size:.8rem;color:var(--slate);margin-top:.3rem}
+
+  /* hero visual: the origin device */
+  .origin{background:var(--indigo);border-radius:18px;padding:3rem 2.5rem;color:var(--bone);position:relative;overflow:hidden}
+  .origin::after{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(166,124,46,.5) 0 12px,transparent 12px 22px);background-size:22px 2px;background-repeat:repeat-x;background-position:0 100%;opacity:.5}
+  .origin h3{font-family:'Inter';font-weight:600;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:1.6rem}
+  .origin-eq{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;font-family:'Fraunces',serif;font-size:1.7rem;font-weight:500}
+  .origin-eq .word{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:.35em .6em;line-height:1}
+  .origin-eq .word b{color:var(--red);font-weight:700}
+  .origin-eq .op{color:var(--brass);font-size:1.4rem}
+  .origin-eq .res{color:#fff;font-weight:700}
+  .origin-note{margin-top:1.6rem;font-size:.92rem;line-height:1.6;color:rgba(255,255,255,.75)}
+
+  /* SECTION SHELL */
+  section{padding:5.5rem 6vw}
+  .wrap{max-width:1300px;margin:0 auto}
+  .sec-head{max-width:42rem;margin-bottom:3rem}
+  .sec-head .eyebrow{margin-bottom:1rem}
+  h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.08;letter-spacing:-.015em;margin-bottom:1rem}
+  .sec-head p{color:var(--slate);font-size:1.05rem}
+
+  /* CATEGORIES */
+  #catalogo{background:var(--white)}
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .cat{position:relative;border-radius:14px;overflow:hidden;background:var(--indigo);min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;padding:1.6rem;color:var(--bone);text-decoration:none;isolation:isolate;transition:transform .25s}
+  .cat:hover{transform:translateY(-4px)}
+  .cat::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.9;transition:opacity .25s}
+  .cat:hover::before{opacity:1}
+  .cat .ico{width:46px;height:46px;margin-bottom:auto;color:var(--bone);opacity:.95}
+  .cat .ico svg{width:100%;height:100%}
+  .cat h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;margin-bottom:.3rem}
+  .cat p{font-size:.86rem;color:rgba(255,255,255,.8);line-height:1.45}
+  .cat .more{margin-top:.9rem;font-size:.8rem;font-weight:700;letter-spacing:.04em;color:#fff;display:inline-flex;align-items:center;gap:6px}
+  .cat-c0::before{background:linear-gradient(160deg,#0096C7,#0077B6)}
+  .cat-c1::before{background:linear-gradient(160deg,#00B8D8,#0096C7)}
+  .cat-c2::before{background:linear-gradient(160deg,#F88018,#F87800)}
+  .cat-c3::before{background:linear-gradient(160deg,#0077B6,#055a8c)}
+  .cat-c4::before{background:linear-gradient(160deg,#0096C7,#00B8D8)}
+  .cat-c5::before{background:linear-gradient(160deg,#FB9D4B,#F88018)}
+
+  /* HISTORIA */
+  #historia{background:var(--bone)}
+  .hist-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center}
+  .hist-card{background:var(--white);border:1px solid rgba(12,34,48,.08);border-radius:16px;padding:2.4rem}
+  .hist-card .yr{font-family:'Fraunces',serif;font-weight:700;font-size:3.4rem;color:var(--red);line-height:1}
+  .hist-card .yr small{display:block;font-family:'Inter';font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-top:.4rem}
+  .hist-body p{color:var(--slate);margin-bottom:1.1rem}
+  .hist-body p strong{color:var(--ink)}
+  .hist-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+  .hist-tags li{list-style:none;background:var(--bone-2);border-radius:100px;padding:5px 14px;font-size:.82rem;color:var(--indigo);font-weight:500}
+
+  /* SERVICIOS strip */
+  #servicios{background:var(--indigo);color:var(--bone)}
+  #servicios .eyebrow{color:var(--brass)}
+  #servicios h2{color:#fff}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1rem}
+  .svc{padding-top:1.4rem;border-top:2px solid rgba(255,255,255,.18)}
+  .svc .ico{width:30px;height:30px;color:var(--brass);margin-bottom:.9rem}
+  .svc h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;color:#fff;margin-bottom:.4rem}
+  .svc p{font-size:.92rem;color:rgba(255,255,255,.72);line-height:1.55}
+
+  /* LOCATIONS + CONTACT */
+  #contacto{background:var(--white)}
+  .loc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-bottom:3rem}
+  .loc{border:1px solid rgba(12,34,48,.1);border-radius:12px;padding:1.5rem}
+  .loc h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--indigo);margin-bottom:.5rem;display:flex;align-items:center;gap:8px}
+  .loc h4 .pin{width:16px;height:16px;color:var(--red);flex:none}
+  .loc p{font-size:.88rem;color:var(--slate);line-height:1.5}
+  .loc a{color:var(--indigo);text-decoration:none;font-weight:500}
+  .loc a:hover{color:var(--red)}
+  .contact-bar{background:var(--bone);border-radius:16px;padding:2.6rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+  .contact-bar h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.7rem;margin-bottom:.4rem}
+  .contact-bar p{color:var(--slate);font-size:.98rem}
+  .wa-btn{background:#25D366;color:#0b3d22;font-weight:700;font-size:1rem;padding:16px 30px;border-radius:9px;text-decoration:none;display:inline-flex;align-items:center;gap:11px;white-space:nowrap;transition:.2s}
+  .wa-btn:hover{background:#1fbe5a;transform:translateY(-1px)}
+  .wa-btn svg{width:22px;height:22px}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:rgba(255,255,255,.7);padding:3.5rem 6vw 2.5rem}
+  .foot-grid{max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start}
+  .foot-brand{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+  .foot-brand img{height:48px;width:auto;border-radius:0;margin-bottom:1rem}
+  .foot-col h5{color:var(--bone);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;font-weight:600}
+  .foot-col a{display:block;color:rgba(255,255,255,.7);text-decoration:none;font-size:.9rem;margin-bottom:.6rem;transition:color .2s}
+  .foot-col a:hover{color:var(--red)}
+  .foot-social{display:flex;gap:.8rem;margin-top:.4rem}
+  .foot-social a{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--bone)}
+  .foot-social a:hover{border-color:var(--red);color:var(--red)}
+  .foot-social svg{width:18px;height:18px}
+  .foot-base{max-width:1300px;margin:2.5rem auto 0;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.82rem;color:rgba(255,255,255,.5)}
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:3rem}
+    .cat-grid{grid-template-columns:repeat(2,1fr)}
+    .hist-grid{grid-template-columns:1fr;gap:2.5rem}
+    .svc-grid{grid-template-columns:1fr}
+    .loc-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:680px){
+    .nav-links{display:none}
+    .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--bone);padding:1.4rem 6vw;border-bottom:1px solid rgba(12,34,48,.1);gap:1.1rem}
+    .nav-toggle{display:block}
+    .cat-grid{grid-template-columns:1fr}
+    .loc-grid{grid-template-columns:1fr}
+    .hero-meta{gap:1.6rem}
+    .contact-bar{flex-direction:column;align-items:flex-start}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="brand">
+    <img src="images/logo.png" alt="Batissa Uniformes" />
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#catalogo" data-i18n="nav.catalog">Catálogo</a></li>
+    <li><a href="#historia" data-i18n="nav.history">Nosotros</a></li>
+    <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+    <li><a href="#contacto" data-i18n="nav.locations">Tiendas</a></li>
+    <li><a href="#contacto" class="nav-cta" data-i18n="nav.quote">Cotiza ahora</a></li>
+    <li><button class="lang-toggle" id="langToggle" aria-label="Language">EN</button></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="hero.eyebrow">Pioneros en uniformes en RD</span>
+      <h1 data-i18n-html="hero.h1">Uniformes que <span class="red">visten</span> al país desde 1970</h1>
+      <p class="hero-lead" data-i18n="hero.lead">Fabricación y venta de todo tipo de uniformes, en existencia y por encargo, al por mayor y al detalle. Calidad dominicana con más de cinco décadas de experiencia.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" id="heroWa" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.042zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span data-i18n="hero.cta1">Cotiza por WhatsApp</span>
+        </a>
+        <a class="btn-ghost" href="#catalogo" data-i18n="hero.cta2">Ver catálogo</a>
+      </div>
+      <div class="hero-meta">
+        <div><div class="m-num">1970</div><div class="m-lab" data-i18n="hero.m1">Año de fundación</div></div>
+        <div><div class="m-num">+50</div><div class="m-lab" data-i18n="hero.m2">Años de experiencia</div></div>
+        <div><div class="m-num">4</div><div class="m-lab" data-i18n="hero.m3">Tiendas en el país</div></div>
+      </div>
+    </div>
+    <!-- origin device -->
+    <div class="origin">
+      <h3 data-i18n="origin.title">El origen del nombre</h3>
+      <div class="origin-eq">
+        <span class="word"><b>Bat</b>as</span>
+        <span class="op">+</span>
+        <span class="word"><b>Issa</b></span>
+        <span class="op">=</span>
+        <span class="res">Batissa</span>
+      </div>
+      <p class="origin-note" data-i18n="origin.note">En 1970, Johnny Issa confeccionó las primeras batas médicas en el taller de su padre. Se vendieron rápido — y así nació Batissa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOGO -->
+<section id="catalogo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="cat.eyebrow">Catálogo</span>
+      <h2 data-i18n="cat.h2">Uniformes para cada oficio</h2>
+      <p data-i18n="cat.lead">Confeccionamos y vendemos para los principales sectores del país. Elige una categoría y cotiza al instante por WhatsApp.</p>
+    </div>
+    <div class="cat-grid" id="catGrid"><!-- injected --></div>
+  </div>
+</section>
+
+<!-- HISTORIA -->
+<section id="historia">
+  <div class="wrap hist-grid">
+    <div class="hist-card">
+      <div class="yr">1970<small data-i18n="hist.badge">Batas + Issa</small></div>
+      <hr class="stitch" style="margin:1.6rem 0">
+      <ul class="hist-tags">
+        <li data-i18n="hist.t1">Fabricación propia</li>
+        <li data-i18n="hist.t2">Al por mayor y al detalle</li>
+        <li data-i18n="hist.t3">En existencia y por encargo</li>
+        <li data-i18n="hist.t4">Bordado y estampado</li>
+      </ul>
+    </div>
+    <div class="hist-body">
+      <span class="eyebrow" data-i18n="hist.eyebrow">Nuestra historia</span>
+      <h2 data-i18n="hist.h2">Una tradición dominicana de calidad</h2>
+      <p data-i18n-html="hist.p1">Uniformes Batissa nació en 1970 en el baúl del carro de su fundador, <strong>Johnny Issa</strong>, entonces estudiante de medicina. Al notar lo difícil que era conseguir uniformes médicos, le propuso a su padre, Athala Issa, confeccionar pequeñas cantidades de batas en su taller.</p>
+      <p data-i18n-html="hist.p2">Las batas se vendieron rápido, y el pequeño negocio fue bautizado con el nombre que aún llevamos con orgullo: <strong>BATISSA</strong> (Batas + Issa). Ese primer producto abrió paso a nuevas necesidades del mercado, y así nos convertimos en pioneros en la fabricación y venta de todo tipo de uniformes en la República Dominicana.</p>
+      <p data-i18n="hist.p3">Hoy, con más de cinco décadas de trayectoria, seguimos innovando para ofrecer la calidad de siempre en nuestros textiles y productos, a precios competitivos para los principales sectores del país.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="svc.eyebrow">Lo que hacemos</span>
+      <h2 data-i18n="svc.h2">Más que vender uniformes</h2>
+    </div>
+    <div class="svc-grid" id="svcGrid"><!-- injected --></div>
+  </div>
+</section>
+
+<!-- CONTACTO / TIENDAS -->
+<section id="contacto">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="loc.eyebrow">Visítanos</span>
+      <h2 data-i18n="loc.h2">Cuatro tiendas para servirte</h2>
+    </div>
+    <div class="loc-grid" id="locGrid"><!-- injected --></div>
+    <div class="contact-bar">
+      <div>
+        <h3 data-i18n="cta.title">¿List@ para tu cotización?</h3>
+        <p data-i18n="cta.sub">Escríbenos por WhatsApp y un asesor te atiende al momento. Pedidos al por mayor y al detalle.</p>
+      </div>
+      <a class="wa-btn" id="ctaWa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.042zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span data-i18n="cta.btn">Cotiza por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div style="max-width:22rem">
+      <div class="foot-brand">
+        <img src="images/logo-white.png" alt="Batissa Uniformes" />
+      </div>
+      <p style="font-size:.9rem;line-height:1.6" data-i18n="foot.blurb">Pioneros en la fabricación y venta de todo tipo de uniformes en la República Dominicana.</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/uniformesbatissa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.49 0-1.96.93-1.96 1.89v2.25h3.32l-.53 3.49h-2.8V24C19.62 23.1 24 18.1 24 12.07z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h5 data-i18n="foot.explore">Explorar</h5>
+      <a href="#catalogo" data-i18n="nav.catalog">Catálogo</a>
+      <a href="#historia" data-i18n="nav.history">Nosotros</a>
+      <a href="#servicios" data-i18n="nav.services">Servicios</a>
+      <a href="#contacto" data-i18n="nav.locations">Tiendas</a>
+    </div>
+    <div class="foot-col">
+      <h5 data-i18n="foot.contact">Contacto</h5>
+      <a href="tel:+18096864043">(809) 686-4043</a>
+      <a href="mailto:ventasnaco@batissa.com">ventasnaco@batissa.com</a>
+      <a href="mailto:ventasmella@batissa.com">ventasmella@batissa.com</a>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span data-i18n="foot.copy">© 2025 Uniformes Batissa SRL. Todos los derechos reservados.</span>
+    <span>Santo Domingo, República Dominicana</span>
+  </div>
+</footer>
+
+<script>
+/* ---------- WhatsApp wiring ---------- */
+const WA_NUMBER = "18096864043"; // (809) 686-4043
+function waLink(msg){return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg);}
+
+/* ---------- Data (icons + per-language content built from dict) ---------- */
+const ICONS = {
+  medico:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2v6a6 6 0 0 0 12 0V2"/><path d="M6 2h12M9 20a3 3 0 0 0 6 0v-2"/><circle cx="20" cy="14" r="2"/></svg>',
+  escolar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>',
+  empresarial:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 12h18"/></svg>',
+  industrial:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M4 21V9l6 4V9l6 4V5l4 2v14"/></svg>',
+  seguridad:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z"/></svg>',
+  gorras:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 14a8 8 0 0 1 16 0"/><path d="M20 14c2 0 2 3 0 3H4c-2 0-2-3 0-3"/><path d="M12 6V3"/></svg>',
+  svc_fab:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M4 21V9l6 4V9l6 4V5l4 2v14"/></svg>',
+  svc_bordado:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20" stroke-dasharray="3 3"/><circle cx="12" cy="12" r="3"/></svg>',
+  svc_volumen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>'
+};
+
+const DICT = {
+  es:{
+    'brand.tag':'Uniformes · desde 1970',
+    'nav.catalog':'Catálogo','nav.history':'Nosotros','nav.services':'Servicios','nav.locations':'Tiendas','nav.quote':'Cotiza ahora',
+    'hero.eyebrow':'Pioneros en uniformes en RD',
+    'hero.h1':'Uniformes que <span class="red">visten</span> al país desde 1970',
+    'hero.lead':'Fabricación y venta de todo tipo de uniformes, en existencia y por encargo, al por mayor y al detalle. Calidad dominicana con más de cinco décadas de experiencia.',
+    'hero.cta1':'Cotiza por WhatsApp','hero.cta2':'Ver catálogo',
+    'hero.m1':'Año de fundación','hero.m2':'Años de experiencia','hero.m3':'Tiendas en el país',
+    'origin.title':'El origen del nombre',
+    'origin.note':'En 1970, Johnny Issa confeccionó las primeras batas médicas en el taller de su padre. Se vendieron rápido — y así nació Batissa.',
+    'cat.eyebrow':'Catálogo','cat.h2':'Uniformes para cada oficio',
+    'cat.lead':'Confeccionamos y vendemos para los principales sectores del país. Elige una categoría y cotiza al instante por WhatsApp.',
+    'hist.eyebrow':'Nuestra historia','hist.h2':'Una tradición dominicana de calidad','hist.badge':'Batas + Issa',
+    'hist.p1':'Uniformes Batissa nació en 1970 en el baúl del carro de su fundador, <strong>Johnny Issa</strong>, entonces estudiante de medicina. Al notar lo difícil que era conseguir uniformes médicos, le propuso a su padre, Athala Issa, confeccionar pequeñas cantidades de batas en su taller.',
+    'hist.p2':'Las batas se vendieron rápido, y el pequeño negocio fue bautizado con el nombre que aún llevamos con orgullo: <strong>BATISSA</strong> (Batas + Issa). Ese primer producto abrió paso a nuevas necesidades del mercado, y así nos convertimos en pioneros en la fabricación y venta de todo tipo de uniformes en la República Dominicana.',
+    'hist.p3':'Hoy, con más de cinco décadas de trayectoria, seguimos innovando para ofrecer la calidad de siempre en nuestros textiles y productos, a precios competitivos para los principales sectores del país.',
+    'hist.t1':'Fabricación propia','hist.t2':'Al por mayor y al detalle','hist.t3':'En existencia y por encargo','hist.t4':'Bordado y estampado',
+    'svc.eyebrow':'Lo que hacemos','svc.h2':'Más que vender uniformes',
+    'loc.eyebrow':'Visítanos','loc.h2':'Cuatro tiendas para servirte',
+    'cta.title':'¿List@ para tu cotización?','cta.sub':'Escríbenos por WhatsApp y un asesor te atiende al momento. Pedidos al por mayor y al detalle.','cta.btn':'Cotiza por WhatsApp',
+    'foot.blurb':'Pioneros en la fabricación y venta de todo tipo de uniformes en la República Dominicana.',
+    'foot.explore':'Explorar','foot.contact':'Contacto','foot.copy':'© 2025 Uniformes Batissa SRL. Todos los derechos reservados.',
+    // categories: [title, desc, waMsg]
+    cats:[
+      ['medico','Uniformes médicos','Batas, pijamas quirúrgicas y uniformes de enfermería en telas antifluido y algodón.','Hola Batissa, quiero cotizar uniformes médicos.'],
+      ['escolar','Uniformes escolares','Polos, camisas, pantalones y faldas para colegios, en existencia y por encargo.','Hola Batissa, quiero cotizar uniformes escolares.'],
+      ['empresarial','Uniformes empresariales','Camisas, polos y blusas corporativas con bordado de su logo.','Hola Batissa, quiero cotizar uniformes empresariales.'],
+      ['industrial','Uniformes industriales','Ropa de trabajo resistente para fábricas, talleres y construcción.','Hola Batissa, quiero cotizar uniformes industriales.'],
+      ['seguridad','Seguridad','Uniformes para personal de vigilancia y seguridad privada.','Hola Batissa, quiero cotizar uniformes de seguridad.'],
+      ['gorras','Gorras y accesorios','Gorras, delantales y accesorios personalizables con bordado o estampado.','Hola Batissa, quiero cotizar gorras y accesorios.']
+    ],
+    // services: [icon, title, desc]
+    svcs:[
+      ['svc_fab','Fabricación propia','Producimos en nuestros talleres, controlando la calidad de cada prenda de principio a fin.'],
+      ['svc_bordado','Bordado y estampado','Personalizamos tus uniformes con el logo de tu empresa, institución o equipo.'],
+      ['svc_volumen','Mayor y detalle','Atendemos desde una pieza hasta grandes volúmenes, con precios competitivos.']
+    ],
+    // locations: [name, address, email]
+    locs:[
+      ['Av. Mella','Av. Mella No. 211, Villa Francisca, Santo Domingo, D.N.','ventasmella@batissa.com'],
+      ['Naco','Av. Max Henríquez Ureña No. 18, Ens. Naco, Santo Domingo, D.N.','ventasnaco@batissa.com'],
+      ['Gustavo Mejía Ricart','Sector Piantini / Ens. Naco, Santo Domingo, D.N.','ventasnaco@batissa.com'],
+      ['Punta Cana – Bávaro','La Altagracia, Punta Cana – Bávaro','ventasnaco@batissa.com']
+    ],
+    loc_visit:'Cómo llegar', loc_more:'Cotizar'
+  },
+  en:{
+    'brand.tag':'Uniforms · since 1970',
+    'nav.catalog':'Catalog','nav.history':'About','nav.services':'Services','nav.locations':'Stores','nav.quote':'Get a quote',
+    'hero.eyebrow':'Uniform pioneers in the DR',
+    'hero.h1':'Uniforms that have <span class="red">dressed</span> the nation since 1970',
+    'hero.lead':'We manufacture and sell every kind of uniform — in stock or made to order, wholesale and retail. Dominican quality, backed by more than five decades of experience.',
+    'hero.cta1':'Quote on WhatsApp','hero.cta2':'View catalog',
+    'hero.m1':'Year founded','hero.m2':'Years of experience','hero.m3':'Stores nationwide',
+    'origin.title':'Where the name comes from',
+    'origin.note':'In 1970, Johnny Issa sewed the first medical coats in his father\u2019s workshop. They sold out fast — and Batissa was born.',
+    'cat.eyebrow':'Catalog','cat.h2':'Uniforms for every trade',
+    'cat.lead':'We supply the country\u2019s main sectors. Pick a category and get an instant quote on WhatsApp.',
+    'hist.eyebrow':'Our story','hist.h2':'A Dominican tradition of quality','hist.badge':'Batas + Issa',
+    'hist.p1':'Uniformes Batissa was born in 1970 in the trunk of the car of its founder, <strong>Johnny Issa</strong>, then a medical student. Seeing how hard it was to find medical coats, he asked his father, Athala Issa, to sew small batches of coats in his workshop.',
+    'hist.p2':'The coats sold out fast, and the small business was christened with the name we still carry proudly today: <strong>BATISSA</strong> (Batas + Issa — \u201Ccoats\u201D + the family name). That first product opened the door to new needs, and we became pioneers in manufacturing and selling every kind of uniform in the Dominican Republic.',
+    'hist.p3':'Today, with more than five decades behind us, we keep innovating to deliver our trademark quality in textiles and products, at competitive prices for the country\u2019s main sectors.',
+    'hist.t1':'In-house manufacturing','hist.t2':'Wholesale & retail','hist.t3':'In stock & made to order','hist.t4':'Embroidery & printing',
+    'svc.eyebrow':'What we do','svc.h2':'More than selling uniforms',
+    'loc.eyebrow':'Visit us','loc.h2':'Four stores to serve you',
+    'cta.title':'Ready for your quote?','cta.sub':'Message us on WhatsApp and an advisor will help you right away. Wholesale and retail orders welcome.','cta.btn':'Quote on WhatsApp',
+    'foot.blurb':'Pioneers in manufacturing and selling every kind of uniform in the Dominican Republic.',
+    'foot.explore':'Explore','foot.contact':'Contact','foot.copy':'© 2025 Uniformes Batissa SRL. All rights reserved.',
+    cats:[
+      ['medico','Medical uniforms','Lab coats, surgical scrubs and nursing uniforms in fluid-resistant and cotton fabrics.','Hello Batissa, I\u2019d like a quote for medical uniforms.'],
+      ['escolar','School uniforms','Polos, shirts, trousers and skirts for schools — in stock or made to order.','Hello Batissa, I\u2019d like a quote for school uniforms.'],
+      ['empresarial','Corporate uniforms','Corporate shirts, polos and blouses embroidered with your logo.','Hello Batissa, I\u2019d like a quote for corporate uniforms.'],
+      ['industrial','Industrial workwear','Durable workwear for factories, workshops and construction.','Hello Batissa, I\u2019d like a quote for industrial workwear.'],
+      ['seguridad','Security','Uniforms for security guards and private security personnel.','Hello Batissa, I\u2019d like a quote for security uniforms.'],
+      ['gorras','Caps & accessories','Caps, aprons and accessories, customizable with embroidery or printing.','Hello Batissa, I\u2019d like a quote for caps and accessories.']
+    ],
+    svcs:[
+      ['svc_fab','In-house manufacturing','We produce in our own workshops, controlling the quality of every garment end to end.'],
+      ['svc_bordado','Embroidery & printing','We personalize your uniforms with your company, school or team logo.'],
+      ['svc_volumen','Wholesale & retail','From a single piece to large volumes, always at competitive prices.']
+    ],
+    locs:[
+      ['Av. Mella','Av. Mella No. 211, Villa Francisca, Santo Domingo, D.N.','ventasmella@batissa.com'],
+      ['Naco','Av. Max Henríquez Ureña No. 18, Naco, Santo Domingo, D.N.','ventasnaco@batissa.com'],
+      ['Gustavo Mejía Ricart','Piantini / Naco, Santo Domingo, D.N.','ventasnaco@batissa.com'],
+      ['Punta Cana – Bávaro','La Altagracia, Punta Cana – Bávaro','ventasnaco@batissa.com']
+    ],
+    loc_visit:'Directions', loc_more:'Get quote'
+  }
+};
+
+/* ---------- Render dynamic sections ---------- */
+function render(lang){
+  const d = DICT[lang];
+  // categories
+  document.getElementById('catGrid').innerHTML = d.cats.map((c,i)=>`
+    <a class="cat cat-c${i}" href="${waLink(c[3])}" target="_blank" rel="noopener">
+      <span class="ico">${ICONS[c[0]]}</span>
+      <h4>${c[1]}</h4>
+      <p>${c[2]}</p>
+      <span class="more">${d.loc_more} ›</span>
+    </a>`).join('');
+  // services
+  document.getElementById('svcGrid').innerHTML = d.svcs.map(s=>`
+    <div class="svc"><span class="ico">${ICONS[s[0]]}</span><h4>${s[1]}</h4><p>${s[2]}</p></div>`).join('');
+  // locations
+  const pin='<svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+  document.getElementById('locGrid').innerHTML = d.locs.map(l=>{
+    const maps='https://www.google.com/maps/search/'+encodeURIComponent('Uniformes Batissa '+l[1]);
+    return `<div class="loc"><h4>${pin}${l[0]}</h4><p>${l[1]}</p><p style="margin-top:.6rem"><a href="mailto:${l[2]}">${l[2]}</a></p><p style="margin-top:.3rem"><a href="${maps}" target="_blank" rel="noopener">${d.loc_visit} ›</a></p></div>`;
+  }).join('');
+}
+
+/* ---------- i18n apply for static [data-i18n] ---------- */
+function applyStatic(lang){
+  const d=DICT[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const v=d[el.getAttribute('data-i18n')];if(v!=null)el.textContent=v;});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const v=d[el.getAttribute('data-i18n-html')];if(v!=null)el.innerHTML=v;});
+}
+
+/* ---------- WhatsApp main buttons ---------- */
+function wireWa(lang){
+  const msg = lang==='es' ? 'Hola Batissa, quisiera solicitar una cotización.' : 'Hello Batissa, I\u2019d like to request a quote.';
+  document.getElementById('heroWa').href = waLink(msg);
+  document.getElementById('ctaWa').href  = waLink(msg);
+}
+
+function setLang(lang){
+  document.documentElement.lang=lang;
+  applyStatic(lang); render(lang); wireWa(lang);
+  document.getElementById('langToggle').textContent = lang==='es'?'EN':'ES';
+  try{localStorage.setItem('batissa_lang',lang);}catch(e){}
+}
+
+let lang='es';
+try{lang=localStorage.getItem('batissa_lang')||'es';}catch(e){}
+setLang(lang);
+
+document.getElementById('langToggle').addEventListener('click',()=>{
+  setLang(document.documentElement.lang==='es'?'en':'es');
+});
+
+/* mobile menu */
+const nt=document.getElementById('navToggle'), nl=document.getElementById('navLinks');
+nt.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nl.classList.remove('open')));
+</script>
+</body>
+</html>
